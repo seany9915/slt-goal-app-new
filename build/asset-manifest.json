@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/slt-goal-app-new/static/css/main.d437d896.css",
+    "main.js": "/slt-goal-app-new/static/js/main.a267a0f5.js",
+    "index.html": "/slt-goal-app-new/index.html",
+    "main.d437d896.css.map": "/slt-goal-app-new/static/css/main.d437d896.css.map",
+    "main.a267a0f5.js.map": "/slt-goal-app-new/static/js/main.a267a0f5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d437d896.css",
+    "static/js/main.a267a0f5.js"
+  ]
+}
