@@ -481,13 +481,13 @@ function App() {
           SLT Goal Setting Dashboard
         </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           {/* Goal Area Dropdown */}
           <div className="flex flex-col">
             <label htmlFor="goalArea" className="text-lg font-semibold text-gray-700 mb-2">Goal Area:</label>
             <select
               id="goalArea"
-              className="p-3 border border-blue-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-transparent transition duration-200 ease-in-out bg-white text-gray-800"
+              className="p-4 border border-blue-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-transparent transition duration-200 ease-in-out bg-white text-gray-800 text-lg min-h-[50px]"
               value={selectedGoalArea}
               onChange={(e) => setSelectedGoalArea(e.target.value)}
             >
@@ -503,7 +503,7 @@ function App() {
             <label htmlFor="specificGoal" className="text-lg font-semibold text-gray-700 mb-2">Specific Goal:</label>
             <select
               id="specificGoal"
-              className="p-3 border border-blue-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-transparent transition duration-200 ease-in-out bg-white text-gray-800"
+              className="p-4 border border-blue-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-transparent transition duration-200 ease-in-out bg-white text-gray-800 text-lg min-h-[50px]"
               value={selectedSpecificGoal}
               onChange={(e) => setSelectedSpecificGoal(e.target.value)}
               disabled={!selectedGoalArea}
@@ -521,7 +521,7 @@ function App() {
               <label htmlFor="subGoalLevel" className="text-lg font-semibold text-gray-700 mb-2">Sub-Goal Level:</label>
               <select
                 id="subGoalLevel"
-                className="p-3 border border-blue-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-transparent transition duration-200 ease-in-out bg-white text-gray-800"
+                className="p-4 border border-blue-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-transparent transition duration-200 ease-in-out bg-white text-gray-800 text-lg min-h-[50px]"
                 value={selectedSubGoalLevel}
                 onChange={(e) => setSelectedSubGoalLevel(e.target.value)}
                 disabled={!selectedSpecificGoal}
@@ -539,7 +539,7 @@ function App() {
             <label htmlFor="goalLevel" className="text-lg font-semibold text-gray-700 mb-2">Goal Level:</label>
             <select
               id="goalLevel"
-              className="p-3 border border-blue-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-transparent transition duration-200 ease-in-out bg-white text-gray-800"
+              className="p-4 border border-blue-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-transparent transition duration-200 ease-in-out bg-white text-gray-800 text-lg min-h-[50px]"
               value={selectedGoalLevel}
               onChange={(e) => setSelectedGoalLevel(e.target.value)}
               disabled={!selectedSpecificGoal || (subGoalLevels.length > 0 && !selectedSubGoalLevel)}
@@ -562,7 +562,7 @@ function App() {
             <label htmlFor="accuracyType" className="text-lg font-semibold text-gray-700 mb-2">Accuracy Type:</label>
             <select
               id="accuracyType"
-              className="p-3 border border-blue-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-transparent transition duration-200 ease-in-out bg-white text-gray-800"
+              className="p-4 border border-blue-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-transparent transition duration-200 ease-in-out bg-white text-gray-800 text-lg min-h-[50px]"
               value={selectedAccuracyType}
               onChange={(e) => {
                 setSelectedAccuracyType(e.target.value);
@@ -584,7 +584,7 @@ function App() {
               {selectedAccuracyType === 'Text' ? (
                 <select
                   id="accuracyValue"
-                  className="p-3 border border-blue-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-transparent transition duration-200 ease-in-out bg-white text-gray-800"
+                  className="p-4 border border-blue-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-transparent transition duration-200 ease-in-out bg-white text-gray-800 text-lg min-h-[50px]"
                   value={accuracyValue}
                   onChange={(e) => setAccuracyValue(e.target.value)}
                 >
@@ -594,10 +594,10 @@ function App() {
                 </select>
               ) : (
                 <input
-                  type="number"
+                  type={selectedAccuracyType === 'Ratio' ? 'text' : 'number'}
                   id="accuracyValue"
-                  className="p-3 border border-blue-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-transparent transition duration-200 ease-in-out bg-white text-gray-800"
-                  placeholder={`Enter ${selectedAccuracyType.toLowerCase()}`}
+                  className="p-4 border border-blue-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-transparent transition duration-200 ease-in-out bg-white text-gray-800 text-lg"
+                  placeholder={selectedAccuracyType === 'Ratio' ? 'Enter ratio (e.g., 3/4, 4:5)' : `Enter ${selectedAccuracyType.toLowerCase()}`}
                   value={accuracyValue}
                   onChange={(e) => setAccuracyValue(e.target.value)}
                 />
@@ -610,7 +610,7 @@ function App() {
             <label htmlFor="frequencyOfCues" className="text-lg font-semibold text-gray-700 mb-2">Frequency of Cues:</label>
             <select
               id="frequencyOfCues"
-              className="p-3 border border-blue-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-transparent transition duration-200 ease-in-out bg-white text-gray-800"
+              className="p-4 border border-blue-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-transparent transition duration-200 ease-in-out bg-white text-gray-800 text-lg min-h-[50px]"
               value={selectedFrequencyOfCues}
               onChange={(e) => setSelectedFrequencyOfCues(e.target.value)}
             >
@@ -624,17 +624,17 @@ function App() {
           {/* Cues Used Checkboxes (Multi-select) */}
           <div className="flex flex-col md:col-span-2">
             <label className="text-lg font-semibold text-gray-700 mb-2">Cues Used:</label>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 p-3 border border-blue-300 rounded-lg shadow-sm bg-white">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4 border border-blue-300 rounded-lg shadow-sm bg-white">
               {goalInventoryData.cuesUsed.map((cue) => (
-                <label key={cue} className="inline-flex items-center text-gray-800 cursor-pointer">
+                <label key={cue} className="inline-flex items-center text-gray-800 cursor-pointer p-2 hover:bg-blue-50 rounded-lg">
                   <input
                     type="checkbox"
                     value={cue}
                     checked={selectedCuesUsed.includes(cue)}
                     onChange={handleCueChange}
-                    className="form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-400 transition duration-150 ease-in-out"
+                    className="form-checkbox h-6 w-6 text-blue-600 rounded focus:ring-blue-400 transition duration-150 ease-in-out"
                   />
-                  <span className="ml-2 text-base">{cue}</span>
+                  <span className="ml-3 text-lg">{cue}</span>
                 </label>
               ))}
             </div>
@@ -648,13 +648,13 @@ function App() {
             <textarea
               readOnly
               value={generatedGoal}
-               className="w-full p-4 text-gray-800 bg-white border border-blue-200 rounded-lg text-lg sm:text-xl font-medium resize-none h-48 focus:outline-none pt-16" // h-48 for more height
-  placeholder="Your SMART goal will appear here once all selections are made."
-/>
+              className="w-full p-6 text-gray-800 bg-white border border-blue-200 rounded-lg text-lg sm:text-xl font-medium resize-none h-64 focus:outline-none pt-16"
+              placeholder="Your SMART goal will appear here once all selections are made."
+            />
             {generatedGoal && (
               <button
                 onClick={() => handleCopyGoal(generatedGoal)}
-                className="absolute top-0 right-2 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105" // Changed top-2 to top-0
+                className="absolute top-0 right-2 bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 text-lg min-h-[50px]"
               >
                 Copy Goal
               </button>
@@ -671,7 +671,7 @@ function App() {
             <button
               onClick={refineGoalWithAI}
               disabled={!generatedGoal || isLoadingAI}
-              className={`py-3 px-6 rounded-full font-bold text-lg shadow-lg transition duration-300 ease-in-out transform
+              className={`py-4 px-8 rounded-full font-bold text-lg shadow-lg transition duration-300 ease-in-out transform min-h-[56px]
                 ${!generatedGoal || isLoadingAI
                   ? 'bg-gray-300 text-gray-600 cursor-not-allowed'
                   : 'bg-purple-600 text-white hover:bg-purple-700 hover:scale-105'
@@ -696,12 +696,12 @@ function App() {
                 <textarea
                   readOnly
                   value={aiRefinedGoal}
-                  className="w-full p-4 text-gray-800 bg-white border border-purple-300 rounded-lg text-lg sm:text-xl font-medium resize-none h-32 focus:outline-none pt-16" // Added pt-16 for top padding
+                  className="w-full p-6 text-gray-800 bg-white border border-purple-300 rounded-lg text-lg sm:text-xl font-medium resize-none h-48 focus:outline-none pt-16"
                   placeholder="AI-refined goal will appear here."
                 />
                 <button
                   onClick={() => handleCopyGoal(aiRefinedGoal)}
-                  className="absolute top-0 right-2 bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105" // Changed top-2 to top-0
+                  className="absolute top-0 right-2 bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 text-lg min-h-[50px]"
                 >
                   Copy AI Goal
                 </button>
